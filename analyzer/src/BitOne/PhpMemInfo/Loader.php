@@ -31,6 +31,8 @@ class Loader
             );
         }
 
+        file_put_contents($filename, mb_convert_encoding(file_get_contents($filename), "UTF-8", "UTF-8"));
+
         $jsonEncoder = new JsonEncoder();
 
         $allData = $jsonEncoder->decode(file_get_contents($filename), JsonEncoder::FORMAT);
